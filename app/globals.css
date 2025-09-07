@@ -1,0 +1,314 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to nature-inspired greenery theme for AYUSH traditional medicine */
+  --background: #f0fdf4; /* Light green background for a fresh feel */
+  --foreground: #374151; /* Dark gray for text and primary elements */
+  --card: #ffffff; /* White for card elements */
+  --card-foreground: #374151; /* Dark gray for text within cards */
+  --popover: #ffffff; /* White for popover backgrounds */
+  --popover-foreground: #374151; /* Dark gray for popover text */
+  --primary: #15803d; /* Main action color for buttons */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #84cc16; /* Accent color for highlights */
+  --secondary-foreground: #374151; /* Dark gray for secondary text */
+  --muted: #f0fdf4; /* Very light green for muted elements */
+  --muted-foreground: #6b7280; /* Gray for muted text */
+  --accent: #84cc16; /* Vibrant lime green for accents */
+  --accent-foreground: #ffffff; /* White text on accent elements */
+  --destructive: #d97706; /* Amber for warnings or alerts */
+  --destructive-foreground: #ffffff; /* White text on destructive elements */
+  --border: #e5e7eb; /* Light gray for borders */
+  --input: #ffffff; /* White for input fields */
+  --ring: rgba(21, 128, 61, 0.3); /* Green-tinted ring color for focus states */
+  --chart-1: #15803d; /* Chart color for green-themed data */
+  --chart-2: #84cc16; /* Chart accent color */
+  --chart-3: #d97706; /* Chart alert color */
+  --chart-4: #6b7280; /* Gray for neutral data */
+  --chart-5: #f0fdf4; /* Light green for background data */
+  --radius: 0.5rem; /* Rounded corners for a softer look */
+  --sidebar: #f0fdf4; /* Light green for sidebar background */
+  --sidebar-foreground: #374151; /* Dark gray for sidebar text */
+  --sidebar-primary: #15803d; /* Primary sidebar color */
+  --sidebar-primary-foreground: #ffffff; /* White text for primary sidebar items */
+  --sidebar-accent: #84cc16; /* Accent color for sidebar highlights */
+  --sidebar-accent-foreground: #374151; /* Dark gray for sidebar accent text */
+  --sidebar-border: #e5e7eb; /* Light gray for sidebar borders */
+  --sidebar-ring: rgba(21, 128, 61, 0.3); /* Green-tinted focus ring for sidebar items */
+}
+
+.dark {
+  --background: #0f172a;
+  --foreground: #f1f5f9;
+  --card: #1e293b;
+  --card-foreground: #f1f5f9;
+  --popover: #1e293b;
+  --popover-foreground: #f1f5f9;
+  --primary: #22c55e;
+  --primary-foreground: #ffffff;
+  --secondary: #a3e635;
+  --secondary-foreground: #ffffff;
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+  --accent: #a3e635;
+  --accent-foreground: #ffffff;
+  --destructive: #fb7185;
+  --destructive-foreground: #ffffff;
+  --border: #334155;
+  --input: #1e293b;
+  --ring: rgba(34, 197, 94, 0.3);
+  --chart-1: #22c55e;
+  --chart-2: #a3e635;
+  --chart-3: #fbbf24;
+  --chart-4: #64748b;
+  --chart-5: #f1f5f9;
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #22c55e;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #a3e635;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #334155;
+  --sidebar-ring: rgba(34, 197, 94, 0.3);
+}
+
+@theme inline {
+  /* Updated fonts to Playfair Display and Source Sans Pro for elegant typography */
+  --font-sans: "Source Sans Pro", system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Updated Google Fonts import for nature-inspired typography */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+/* Added nature-inspired animations and GSAP-ready classes */
+@keyframes leafFloat {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+}
+
+@keyframes organicPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(21, 128, 61, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(21, 128, 61, 0);
+  }
+}
+
+@keyframes greenGradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Nature-inspired animation classes */
+.animate-leaf-float {
+  animation: leafFloat 4s ease-in-out infinite;
+}
+
+.animate-organic-pulse {
+  animation: organicPulse 3s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-in-left {
+  animation: slideInFromLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-in-right {
+  animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Green gradient backgrounds for nature theme */
+.nature-gradient-bg {
+  background: linear-gradient(-45deg, #15803d, #22c55e, #84cc16, #16a34a);
+  background-size: 400% 400%;
+  animation: greenGradientFlow 8s ease infinite;
+}
+
+.leaf-pattern-bg {
+  background-image: radial-gradient(circle at 25% 25%, rgba(21, 128, 61, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(132, 204, 22, 0.1) 0%, transparent 50%);
+}
+
+/* Enhanced glass effects with green tints */
+.nature-glass-effect {
+  backdrop-filter: blur(16px);
+  background: rgba(240, 253, 244, 0.8);
+  border: 1px solid rgba(21, 128, 61, 0.2);
+  box-shadow: 0 8px 32px rgba(21, 128, 61, 0.1);
+}
+
+.dark .nature-glass-effect {
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  box-shadow: 0 8px 32px rgba(34, 197, 94, 0.1);
+}
+
+/* Organic hover effects */
+.organic-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.organic-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(21, 128, 61, 0.25);
+}
+
+/* Nature-inspired text gradients */
+.nature-text-gradient {
+  background: linear-gradient(135deg, #15803d, #22c55e, #84cc16);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Botanical decorative elements */
+.botanical-border {
+  border-image: linear-gradient(45deg, #15803d, #84cc16) 1;
+}
+
+.leaf-shadow {
+  box-shadow: 0 4px 6px -1px rgba(21, 128, 61, 0.1), 0 2px 4px -1px rgba(21, 128, 61, 0.06), inset 0 1px 0
+    rgba(132, 204, 22, 0.1);
+}
+
+/* GSAP-ready classes for smooth animations */
+.gsap-fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.gsap-slide-left {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.gsap-slide-right {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.gsap-scale-up {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Organic button styles */
+.organic-button {
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  border-radius: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.organic-button:hover {
+  background: linear-gradient(135deg, #166534, #15803d);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(21, 128, 61, 0.3);
+}
