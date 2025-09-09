@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  email     String   @unique
+  fullName  String
+  profession String?
+  organization String?
+  passwordHash String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  records   SavedRecord[]
+}
+
+model SavedRecord {
+  id           String   @id @default(cuid())
+  name         String
+  date         DateTime @default(now())
+  source       String   // 'search' | 'upload'
+  saveLocation String   // 'local' | 'abha'
+  notes        String?
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+
+  codes  SavedRecordCode[]
+
+  @@index([userId])
+}
+
+model SavedRecordCode {
+  id          String   @id @default(cuid())
+  code        String
+  system      String   // 'namaste' | 'icd11' | 'who'
+  description String
+  category    String
+
+  record   SavedRecord @relation(fields: [recordId], references: [id])
+  recordId String
+
+  @@index([recordId])
+}
