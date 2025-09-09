@@ -160,8 +160,8 @@ export default function DashboardPage() {
           <div className="container mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center animate-organic-pulse leaf-shadow">
-                  <Leaf className="w-6 h-6 text-primary-foreground" />
+                <div className="w-14 h-14 bg-[#e8f5e9] rounded-lg flex items-center justify-center animate-organic-pulse leaf-shadow overflow-hidden">
+                  <img src="/logo.png" alt="Logo" className="w-full h-full object-contain p-2" />
                 </div>
                 <div>
                   <h1 className="font-serif font-bold text-xl nature-text-gradient">NAMASTE + ICD-11</h1>
@@ -445,7 +445,7 @@ export default function DashboardPage() {
                     ICD-11 Reference
                   </Button>
                   <Button variant="ghost" className="w-full justify-start organic-hover" size="sm">
-                    <Leaf className="w-4 h-4 mr-2" />
+                    <img src="/logo.png" alt="Logo" className="w-4 h-4 mr-2 object-contain" />
                     WHO Guidelines
                   </Button>
                 </CardContent>

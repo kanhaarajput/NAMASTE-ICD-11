@@ -96,8 +96,8 @@ export default function RegisterPage() {
             Back to Home
           </Link>
           <div className="flex items-center justify-center space-x-3 mb-4">
-            <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center">
-              <Shield className="w-7 h-7 text-primary-foreground" />
+            <div className="w-14 h-14 bg-[#e8f5e9] rounded-lg flex items-center justify-center animate-organic-pulse leaf-shadow overflow-hidden">
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain p-2" />
             </div>
             <div className="text-left">
               <h1 className="font-serif font-bold text-xl text-foreground">NAMASTE + ICD-11</h1>
